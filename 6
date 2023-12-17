@@ -1,0 +1,54 @@
+MainActivity.java
+package com.example.lifecycle;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+public class MainActivity extends AppCompatActivity {
+ private TextView textView;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ Log.d(“MAINACTIVITY”, "onCreate");
+ textView = findViewById(R.id.textView);
+ textView.setText("onCreate");
+ }
+ @Override
+ protected void onStart() {
+ super.onStart();
+ Log.d(“MAINACTIVITY”, "onStart");
+ textView.append("\nonStart");
+ }
+ @Override
+ protected void onResume() {
+ super.onResume();
+ Log.d(“MainActivity”, "onResume");
+ textView.append("\nonResume");
+ }
+ @Override
+ protected void onPause() {
+ super.onPause();
+ Log.d(“MAINACTIVITY”, "onPause");
+ textView.append("\nonPause");
+ }
+ @Override
+ protected void onStop() {
+ super.onStop();
+ Log.d(“MAINACTIVITY”, "onStop");
+ textView.append("\nonStop");
+ }
+ @Override
+ protected void onDestroy() {
+ super.onDestroy();
+ Log.d(“MAINACTIVITY”, "onDestroy");
+ textView.append("\nonDestroy");
+16
+ }
+ @Override
+ protected void onRestart() {
+ super.onRestart();
+ Log.d(“MAINACTIVITY”, "onRestart");
+ textView.append("\nonRestart");
+ }
+}
